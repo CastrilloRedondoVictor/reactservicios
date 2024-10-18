@@ -13,8 +13,10 @@ export default class Empleados extends Component {
         this.loadEmpleados();
     }
 
-    componentDidUpdate = () => {
-        this.loadEmpleados();
+    componentDidUpdate = (prevProps) => {
+        if (prevProps.idDepartamento !== this.props.idDepartamento) {
+            this.loadEmpleados();
+        }
     }
 
     loadEmpleados = () => {
